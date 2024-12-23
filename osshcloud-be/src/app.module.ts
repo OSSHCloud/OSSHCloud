@@ -3,8 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { ListOfValuesModule } from './list-of-values/list-of-values.module';
-
+import * as dotenv from 'dotenv';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
+dotenv.config();
 
 @Module({
   imports: [
