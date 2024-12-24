@@ -13,7 +13,7 @@ import { JwtModule } from '@nestjs/jwt';
       secret: process.env.JWT_CONSTANT,
       signOptions: { expiresIn: process.env.JWT_EXPIRE_IN },
     }),
-    // UserLogModule,
+    UserLogModule,
   ],
   controllers: [UserController],
   providers: [UserService],
