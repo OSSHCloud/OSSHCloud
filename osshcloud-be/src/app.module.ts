@@ -7,6 +7,7 @@ import * as dotenv from 'dotenv';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserLogModule } from './user-log/user-log.module';
 import { LovCategoryModule } from './lov-category/lov-category.module';
+import { ApplicationModule } from './application/application.module';
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ dotenv.config();
     ListOfValuesModule,
     UserLogModule,
     LovCategoryModule,
+    ApplicationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
