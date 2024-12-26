@@ -10,7 +10,7 @@ import { LovCategoryModule } from './lov-category/lov-category.module';
 import { ApplicationModule } from './application/application.module';
 import { ApplicationRoleModule } from './application-role/application-role.module';
 import { BusinessRoleModule } from './business-role/business-role.module';
-import { BusinessApplicationResourceModule } from './business-application-resource/business-application-resource.module';
+import { BusinessApplicationRoleModule } from './business-application-role/business-application-role.module';
 
 dotenv.config();
 
@@ -34,7 +34,7 @@ dotenv.config();
     ApplicationModule,
     ApplicationRoleModule,
     BusinessRoleModule,
-    BusinessApplicationResourceModule,
+    BusinessApplicationRoleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
