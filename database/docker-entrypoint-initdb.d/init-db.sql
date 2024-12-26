@@ -1,3 +1,6 @@
+-- Connect to the specified database with the specified user
+\connect :POSTGRES_DB :POSTGRES_USER
+
 CREATE TABLE "user" (
   "user_id" integer NOT NULL DEFAULT nextval('user_user_id_seq'::regclass),
   "email" character varying NOT NULL,
