@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ApplicationRoleController } from './application-role.controller';
 import { ApplicationRoleService } from './application-role.service';
 
-describe('ApplicationRoleController', () => {
+describe('ApplicationController', () => {
   let controller: ApplicationRoleController;
 
   beforeEach(async () => {
@@ -11,7 +11,9 @@ describe('ApplicationRoleController', () => {
       providers: [ApplicationRoleService],
     }).compile();
 
-    controller = module.get<ApplicationRoleController>(ApplicationRoleController);
+    controller = module.get<ApplicationRoleController>(
+      ApplicationRoleController,
+    );
   });
 
   it('should be defined', () => {

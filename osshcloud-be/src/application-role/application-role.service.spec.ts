@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ApplicationRoleService } from './application-role.service';
+import { ApplicationService } from './application-role.service';
 
-describe('ApplicationRoleService', () => {
-  let service: ApplicationRoleService;
+describe('ApplicationService', () => {
+  let service: ApplicationService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ApplicationRoleService],
+      providers: [ApplicationService],
     }).compile();
 
-    service = module.get<ApplicationRoleService>(ApplicationRoleService);
+    service = module.get<ApplicationService>(ApplicationService);
   });
 
   it('should be defined', () => {
