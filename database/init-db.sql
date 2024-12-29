@@ -1,3 +1,246 @@
+
+-- Create the sequence list_of_values_history_list_of_values_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS list_of_values_history_list_of_values_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence organization_organization_id_seq
+CREATE SEQUENCE IF NOT EXISTS organization_organization_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence package_history_package_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS package_history_package_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence application_route_application_route_id_seq
+CREATE SEQUENCE IF NOT EXISTS application_route_application_route_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence application_history_application_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS application_history_application_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence application_route_history_application_route_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS application_route_history_application_route_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence user_history_user_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS user_history_user_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence lov_category_history_lov_category_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS lov_category_history_lov_category_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence package_package_id_seq
+CREATE SEQUENCE IF NOT EXISTS package_package_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence user_log_user_log_id_seq
+CREATE SEQUENCE IF NOT EXISTS user_log_user_log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence user_log_history_user_log_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS user_log_history_user_log_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence application_application_id_seq
+CREATE SEQUENCE IF NOT EXISTS application_application_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence business_application_role_his_business_application_role_his_seq
+CREATE SEQUENCE IF NOT EXISTS business_application_role_his_business_application_role_his_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence application_role_history_application_role_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS application_role_history_application_role_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence list_of_values_list_of_values_id_seq
+CREATE SEQUENCE IF NOT EXISTS list_of_values_list_of_values_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence user_user_id_seq
+CREATE SEQUENCE IF NOT EXISTS user_user_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence business_role_business_role_id_seq
+CREATE SEQUENCE IF NOT EXISTS business_role_business_role_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence business_application_role_business_application_role_id_seq
+CREATE SEQUENCE IF NOT EXISTS business_application_role_business_application_role_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence lov_category_lov_category_id_seq
+CREATE SEQUENCE IF NOT EXISTS lov_category_lov_category_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence application_role_application_role_id_seq
+CREATE SEQUENCE IF NOT EXISTS application_role_application_role_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence business_role_history_business_role_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS business_role_history_business_role_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Create the sequence organization_history_organization_history_id_seq
+CREATE SEQUENCE IF NOT EXISTS organization_history_organization_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+-- Ensure the sequence list_of_values_history_list_of_values_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE list_of_values_history_list_of_values_history_id_seq OWNED BY "list_of_values_history_list_of_values_history_id"."seq";
+
+-- Ensure the sequence organization_organization_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE organization_organization_id_seq OWNED BY "organization_organization_id"."seq";
+
+-- Ensure the sequence package_history_package_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE package_history_package_history_id_seq OWNED BY "package_history_package_history_id"."seq";
+
+-- Ensure the sequence application_route_application_route_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE application_route_application_route_id_seq OWNED BY "application_route_application_route_id"."seq";
+
+-- Ensure the sequence application_history_application_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE application_history_application_history_id_seq OWNED BY "application_history_application_history_id"."seq";
+
+-- Ensure the sequence application_route_history_application_route_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE application_route_history_application_route_history_id_seq OWNED BY "application_route_history_application_route_history_id"."seq";
+
+-- Ensure the sequence user_history_user_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE user_history_user_history_id_seq OWNED BY "user_history_user_history_id"."seq";
+
+-- Ensure the sequence lov_category_history_lov_category_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE lov_category_history_lov_category_history_id_seq OWNED BY "lov_category_history_lov_category_history_id"."seq";
+
+-- Ensure the sequence package_package_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE package_package_id_seq OWNED BY "package_package_id"."seq";
+
+-- Ensure the sequence user_log_user_log_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE user_log_user_log_id_seq OWNED BY "user_log_user_log_id"."seq";
+
+-- Ensure the sequence user_log_history_user_log_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE user_log_history_user_log_history_id_seq OWNED BY "user_log_history_user_log_history_id"."seq";
+
+-- Ensure the sequence application_application_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE application_application_id_seq OWNED BY "application_application_id"."seq";
+
+-- Ensure the sequence business_application_role_his_business_application_role_his_seq is owned by its corresponding table and column
+ALTER SEQUENCE business_application_role_his_business_application_role_his_seq OWNED BY "business_application_role_his_business_application_role_his"."seq";
+
+-- Ensure the sequence application_role_history_application_role_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE application_role_history_application_role_history_id_seq OWNED BY "application_role_history_application_role_history_id"."seq";
+
+-- Ensure the sequence list_of_values_list_of_values_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE list_of_values_list_of_values_id_seq OWNED BY "list_of_values_list_of_values_id"."seq";
+
+-- Ensure the sequence user_user_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE user_user_id_seq OWNED BY "user_user_id"."seq";
+
+-- Ensure the sequence business_role_business_role_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE business_role_business_role_id_seq OWNED BY "business_role_business_role_id"."seq";
+
+-- Ensure the sequence business_application_role_business_application_role_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE business_application_role_business_application_role_id_seq OWNED BY "business_application_role_business_application_role_id"."seq";
+
+-- Ensure the sequence lov_category_lov_category_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE lov_category_lov_category_id_seq OWNED BY "lov_category_lov_category_id"."seq";
+
+-- Ensure the sequence application_role_application_role_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE application_role_application_role_id_seq OWNED BY "application_role_application_role_id"."seq";
+
+-- Ensure the sequence business_role_history_business_role_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE business_role_history_business_role_history_id_seq OWNED BY "business_role_history_business_role_history_id"."seq";
+
+-- Ensure the sequence organization_history_organization_history_id_seq is owned by its corresponding table and column
+ALTER SEQUENCE organization_history_organization_history_id_seq OWNED BY "organization_history_organization_history_id"."seq";
+
 -- Connect to the specified database with the specified user
 -- \connect :POSTGRES_DB :POSTGRES_USER
 
