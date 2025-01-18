@@ -9,8 +9,8 @@ import * as dayjs from 'dayjs';
 import { RestResponse } from 'src/utils/restResponse';
 import { FindAllDto } from './dto/find-all.dto';
 
-@Controller('person')
-export class PersonController {
+@Controller('people')
+export class PeopleController {
   constructor(private readonly mainService: PeopleService) {}
 
   @UseGuards(JwtAuthGuard)
