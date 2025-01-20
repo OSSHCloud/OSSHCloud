@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'people_history' })
-export class peopleHistory {
+export class PeopleHistory {
   @PrimaryGeneratedColumn({ name: 'people_history_id' })
   peopleHistoryId: number;
 
