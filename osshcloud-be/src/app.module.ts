@@ -16,6 +16,7 @@ import { AccountModule } from './account/account.module';
 import { BankModule } from './bank/bank.module';
 import { CountryModule } from './country/country.module';
 import { OrganizationModule } from './organization/organization.module';
+import { PackageModule } from './package/package.module';
 
 dotenv.config();
 
@@ -45,6 +46,7 @@ dotenv.config();
     BankModule,
     CountryModule,
     OrganizationModule,
+    PackageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
