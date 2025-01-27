@@ -13,8 +13,11 @@ import {
   ManyToOne,
 } from 'typeorm';
 
-@Entity({ name: 'email' })
-export class Email {
+@Entity({ name: 'email_history' })
+export class EmailHistory {
+  @PrimaryGeneratedColumn({ name: 'email_history_id' })
+  emailHistoryId: number;
+
   @PrimaryGeneratedColumn({ name: 'email_id' })
   emailId: number;
 
