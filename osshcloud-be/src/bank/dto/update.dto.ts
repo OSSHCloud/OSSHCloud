@@ -8,7 +8,11 @@ import {
   ValidateNested,
 } from 'class-validator';
 
-export class CreateDataPayloadDto {
+export class UpdateDataPayloadDto {
+  @IsNotEmpty()
+  @IsNumber()
+  bankId: number;
+
   @IsNotEmpty()
   @IsString()
   title: string;
@@ -18,22 +22,22 @@ export class CreateDataPayloadDto {
   description: string;
 
   @IsNotEmpty()
-  @IsNumber()
-  peopleId: number;
-
-  @IsNotEmpty()
-  @IsNumber()
-  bankId: number;
+  @IsString()
+  code: string;
 
   @IsNotEmpty()
   @IsString()
-  iban: string;
+  ibanCode: string;
+
+  @IsOptional()
+  @IsNumber()
+  country: number;
 }
 
-export class CreateDto {
+export class UpdateDto {
   @IsNotEmpty()
   @ValidateNested({ each: true })
-  @Type(() => CreateDataPayloadDto)
+  @Type(() => UpdateDataPayloadDto)
   @IsArray()
-  data: CreateDataPayloadDto[];
+  data: UpdateDataPayloadDto[];
 }

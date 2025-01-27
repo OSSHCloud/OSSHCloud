@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Not, Repository } from 'typeorm';
-import { Account } from './entities/account.entity';
-import { AccountHistory } from './entities/account-history.entity';
+import { Bank } from './entities/bank.entity';
+import { BankHistory } from './entities/bank-history.entity';
 import { CreateDataPayloadDto } from './dto/create.dto';
 import {
   LID_DELETE_ID,
@@ -10,17 +10,17 @@ import {
   TRY_AGAIN_LATER,
 } from 'src/utils/constants';
 import { RestResponse } from 'src/utils/restResponse';
-import { isNumber, isEmpty } from 'lodash';
 import { FindAllDataPayloadDto } from './dto/find-all.dto';
 import { paginationDto } from 'src/utils/commonDtos.dto';
+import { isNumber, isEmpty } from 'lodash';
 
 @Injectable()
-export class AccountService {
+export class BankService {
   constructor(
-    @InjectRepository(Account)
-    private readonly mainRepository: Repository<Account>,
-    @InjectRepository(AccountHistory)
-    private readonly historyRepositry: Repository<AccountHistory>,
+    @InjectRepository(Bank)
+    private readonly mainRepository: Repository<Bank>,
+    @InjectRepository(BankHistory)
+    private readonly historyRepositry: Repository<BankHistory>,
   ) {}
 
   async create(params: CreateDataPayloadDto) {
@@ -28,7 +28,7 @@ export class AccountService {
     const ifRecordExists = await this.mainRepository.findOne({
       where: [
         {
-          iban: params.iban,
+          title: params.title,
           dmlStatus: Not(LID_DELETE_ID),
         },
       ],
@@ -51,8 +51,8 @@ export class AccountService {
   async findAll(params: FindAllDataPayloadDto, pagination: paginationDto) {
     let sql = '';
     // Construct SQL query based on provided filter parameters.
-    if (isNumber(params?.accountId)) {
-      sql += `r.accountId=${params?.accountId} AND `;
+    if (isNumber(params?.bankId)) {
+      sql += `r.bankId=${params?.bankId} AND `;
     }
     if (!isEmpty(params?.title)) {
       sql += `r.title ilike '%${params?.title}%' AND `;
@@ -60,17 +60,17 @@ export class AccountService {
     if (!isEmpty(params?.description)) {
       sql += `r.description ilike '%${params?.description}%' AND `;
     }
-    if (!isEmpty(params?.peopleId)) {
-      sql += `r.peopleId=${params?.peopleId} AND `;
+    if (!isEmpty(params?.code)) {
+      sql += `r.code ilike '%${params?.code}%'  AND `;
     }
-    if (!isEmpty(params?.bankId)) {
-      sql += `r.bankId=${params?.bankId} AND `;
+    if (!isEmpty(params?.ibanCode)) {
+      sql += `r.ibanCode ilike '%${params?.ibanCode}%'  AND `;
     }
-    if (!isEmpty(params?.iban)) {
-      sql += `r.iban=${params?.iban} AND `;
+    if (!isEmpty(params?.countryId)) {
+      sql += `r.countryId=${params?.countryId} AND `;
     }
 
-    sql += `r.dmlStatus != ${LID_DELETE_ID} ORDER BY 1 DESC`;
+    sql += `r.dmlStatus != ${LID_DELETE_ID} ORDER BY 1 ASC`;
 
     // Count the total number of records based on the constructed SQL query.
     const count = await this.mainRepository
@@ -92,8 +92,7 @@ export class AccountService {
       ? await this.mainRepository
           .createQueryBuilder('r')
           .where(sql)
-          .leftJoinAndSelect('r.bankId', 'bankId')
-          .leftJoinAndSelect('r.peopleId', 'peopleId')
+          .leftJoinAndSelect('r.countryId', 'countryId')
           .getMany()
       : [];
     return count ? [query, count] : [];

@@ -1,6 +1,5 @@
-import { Bank } from 'src/bank/entities/bank.entity';
+import { Country } from 'src/country/entities/country.entity';
 import { ListOfValues } from 'src/list-of-values/entities/list-of-values.entity';
-import { People } from 'src/people/entities/people.entity';
 import { User } from 'src/user/entities/user.entity';
 import { LID_CREATED_ID } from 'src/utils/constants';
 import {
@@ -11,10 +10,10 @@ import {
   ManyToOne,
 } from 'typeorm';
 
-@Entity({ name: 'account' })
-export class Account {
-  @PrimaryGeneratedColumn({ name: 'account_id' })
-  accountId: number;
+@Entity({ name: 'bank' })
+export class Bank {
+  @PrimaryGeneratedColumn({ name: 'bank_id' })
+  bankId: number;
 
   @Column({ name: 'title' })
   title: string;
@@ -22,25 +21,16 @@ export class Account {
   @Column({ name: 'description', nullable: true })
   description: string;
 
-  @ManyToOne(() => People, (x) => x.peopleId)
-  @JoinColumn({ name: 'people_id' })
-  @Column({
-    name: 'people_id',
-  })
-  peopleId: number;
+  @Column({ name: 'code', nullable: true })
+  code: string;
 
-  @ManyToOne(() => Bank, (x) => x.bankId)
-  @JoinColumn({ name: 'bank_id' })
-  @Column({
-    name: 'bank_id',
-  })
-  bankId: number;
+  @Column({ name: 'iban_code', nullable: true })
+  ibanCode: string;
 
-  @Column({ name: 'iban', nullable: true })
-  iban: string;
-
-  // @Column({ name: 'description', nullable: true })
-  // description: string;
+  @ManyToOne(() => Country, (x) => x.countryId)
+  @JoinColumn({ name: 'country_id' })
+  @Column({ name: 'country_id', nullable: true })
+  countryId: number;
 
   // dml
 

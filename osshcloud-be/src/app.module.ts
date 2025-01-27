@@ -13,6 +13,7 @@ import { BusinessRoleModule } from './business-role/business-role.module';
 import { BusinessApplicationRoleModule } from './business-application-role/business-application-role.module';
 import { PeopleModule } from './people/people.module';
 import { AccountModule } from './account/account.module';
+import { BankModule } from './bank/bank.module';
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ dotenv.config();
     BusinessApplicationRoleModule,
     PeopleModule,
     AccountModule,
+    BankModule,
   ],
   controllers: [AppController],
   providers: [AppService],

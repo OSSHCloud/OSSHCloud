@@ -18,16 +18,16 @@ export class CreateDataPayloadDto {
   description: string;
 
   @IsNotEmpty()
-  @IsNumber()
-  peopleId: number;
-
-  @IsNotEmpty()
-  @IsNumber()
-  bankId: number;
+  @IsString()
+  code: string;
 
   @IsNotEmpty()
   @IsString()
-  iban: string;
+  ibanCode: string;
+
+  @IsOptional()
+  @IsNumber()
+  country: number;
 }
 
 export class CreateDto {

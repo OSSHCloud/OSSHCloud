@@ -1,5 +1,5 @@
 import { ListOfValues } from 'src/list-of-values/entities/list-of-values.entity';
-import { Person } from 'src/people/entities/person.entity';
+import { People } from 'src/people/entities/people.entity';
 import { User } from 'src/user/entities/user.entity';
 import { LID_CREATED_ID } from 'src/utils/constants';
 import {
@@ -24,15 +24,15 @@ export class AccountHistory {
   @Column({ name: 'description', nullable: true })
   description: string;
 
-  // @ManyToOne(() => Person, (x) => x.person_id)
-  // @JoinColumn({ name: 'person_id' })
+  // @ManyToOne(() => people, (x) => x.people_id)
+  // @JoinColumn({ name: 'people_id' })
   @Column({
-    name: 'person_id',
+    name: 'people_id',
   })
-  personId: number;
+  peopleId: number;
 
-  // @ManyToOne(() => Person, (x) => x.person_id)
-  // @JoinColumn({ name: 'person_id' })
+  // @ManyToOne(() => people, (x) => x.people_id)
+  // @JoinColumn({ name: 'people_id' })
   @Column({
     name: 'bank_id',
   })
