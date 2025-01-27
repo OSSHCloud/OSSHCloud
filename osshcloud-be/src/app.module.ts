@@ -14,6 +14,7 @@ import { BusinessApplicationRoleModule } from './business-application-role/busin
 import { PeopleModule } from './people/people.module';
 import { AccountModule } from './account/account.module';
 import { BankModule } from './bank/bank.module';
+import { CountryModule } from './country/country.module';
 
 dotenv.config();
 
@@ -41,6 +42,7 @@ dotenv.config();
     PeopleModule,
     AccountModule,
     BankModule,
+    CountryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
