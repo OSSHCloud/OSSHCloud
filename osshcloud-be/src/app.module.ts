@@ -15,6 +15,7 @@ import { PeopleModule } from './people/people.module';
 import { AccountModule } from './account/account.module';
 import { BankModule } from './bank/bank.module';
 import { CountryModule } from './country/country.module';
+import { OrganizationModule } from './organization/organization.module';
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ dotenv.config();
     AccountModule,
     BankModule,
     CountryModule,
+    OrganizationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
