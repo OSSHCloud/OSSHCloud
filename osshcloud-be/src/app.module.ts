@@ -18,6 +18,7 @@ import { CountryModule } from './country/country.module';
 import { OrganizationModule } from './organization/organization.module';
 import { PackageModule } from './package/package.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { EmailModule } from './email/email.module';
 
 dotenv.config();
 
@@ -49,6 +50,7 @@ dotenv.config();
     OrganizationModule,
     PackageModule,
     TransactionModule,
+    EmailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
