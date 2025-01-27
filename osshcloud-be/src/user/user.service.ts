@@ -1,5 +1,5 @@
 import { User } from 'src/user/entities/user.entity';
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { RegisterDataPayloadDto } from './dto/register.dto';
 import {
   EMAIL_IN_USE,
@@ -25,8 +25,9 @@ import { RestResponse } from 'src/utils/restResponse';
 import { UserLogService } from 'src/user-log/user-log.service';
 import { FindAllDataPayloadDto } from './dto/find-all.dto';
 import { paginationDto } from 'src/utils/commonDtos.dto';
-import { isEmpty, isNumber } from 'lodash';
+import { isEmpty, isNumber, isEmail } from 'lodash';
 import { CreateDataPayloadDto } from './dto/create.dto';
+import { EmailService } from 'src/email/email.service';
 
 @Injectable()
 export class UserService {
@@ -37,6 +38,8 @@ export class UserService {
     private readonly historyRepositry: Repository<UserHistory>,
     private jwtService: JwtService,
     private userLogService: UserLogService,
+    @Inject(EmailService)
+    private emailService: EmailService,
   ) {}
 
   // user registration
@@ -88,7 +91,10 @@ export class UserService {
 
   // login
   async login(params: LoginDataPayloadDto) {
-    let user = await this.checkEmail(params.email);
+    let user;
+    if (isEmail(params.email)) {
+      user = await this.checkEmail(params.email);
+    }
     if (!user) {
       user = await this.checkUsername(params.email);
     }
@@ -119,7 +125,7 @@ export class UserService {
       where: [
         {
           username: params.username,
-          email: params.email,
+          // email: params.email,
           dmlStatus: Not(LID_DELETE_ID),
         },
       ],
@@ -324,6 +330,7 @@ export class UserService {
       .addSelect('r.password')
       .leftJoinAndSelect('r.lovStatusId', 'lovStatusId')
       .leftJoinAndSelect('r.lovUserTypeId', 'lovUserTypeId')
+      .leftJoinAndSelect('r.defaultEmailId', 'defaultEmailId')
       .getOne();
     return result;
   }

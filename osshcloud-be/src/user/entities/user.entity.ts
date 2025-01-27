@@ -22,8 +22,8 @@ export class User {
   @PrimaryGeneratedColumn({ name: 'user_id' })
   userId: number;
 
-  @Column({ name: 'email', nullable: false })
-  email: string;
+  // @Column({ name: 'email', nullable: false })
+  // email: string;
 
   @Column({ name: 'first_name' })
   firstName: string;
