@@ -15,6 +15,7 @@ import {
 } from 'src/utils/constants';
 import { ListOfValues } from 'src/list-of-values/entities/list-of-values.entity';
 import { Organization } from 'src/organization/entities/organization.entity';
+import { Email } from 'src/email/entities/email.entity';
 
 @Entity({ name: 'user' })
 export class User {
@@ -44,6 +45,11 @@ export class User {
 
   @Column({ type: 'date', name: 'date_of_birth', nullable: true })
   dateOfBirth?: string;
+
+  @ManyToOne(() => Email, (x) => x.emailId)
+  @JoinColumn({ name: 'default_email_id' })
+  @Column({ name: 'default_email_id', nullable: true })
+  defaultEmailId: number;
 
   @ManyToOne(() => ListOfValues, (x) => x.listOfValuesId)
   @JoinColumn({ name: 'lov_user_type_id' })
