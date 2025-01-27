@@ -54,6 +54,9 @@ export class UserHistory {
   @Column({ type: 'date', name: 'date_of_birth', nullable: true })
   dateOfBirth: string;
 
+  @Column({ name: 'default_email_id', nullable: true })
+  defaultEmailId: number;
+
   @ManyToOne(() => ListOfValues, (x) => x.listOfValuesId)
   @JoinColumn({ name: 'lov_user_type_id' })
   @Column({
