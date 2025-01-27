@@ -1,6 +1,10 @@
 import { ListOfValues } from 'src/list-of-values/entities/list-of-values.entity';
 import { User } from 'src/user/entities/user.entity';
-import { LID_ACTIVE_ID, LID_CREATED_ID } from 'src/utils/constants';
+import {
+  LID_ACTIVE_ID,
+  LID_CREATED_ID,
+  LID_NOT_VERIFIED_ID,
+} from 'src/utils/constants';
 import {
   Entity,
   Column,
@@ -29,6 +33,17 @@ export class Email {
     default: LID_ACTIVE_ID,
   })
   lovStatusId: number;
+
+  @ManyToOne(() => ListOfValues, (x) => x.listOfValuesId)
+  @JoinColumn({ name: 'lov_verification_id' })
+  @Column({
+    name: 'lov_verification_id',
+    default: LID_NOT_VERIFIED_ID,
+  })
+  lovVerificationId: number;
+
+  @Column({ name: 'verification_timestamp', nullable: true })
+  verificationTimestamp: number;
 
   // dml
 
